@@ -1,12 +1,5 @@
 :root{
-    --value: calc(5rem + 5*((100vw - 320px) / 1620));
-    --word-padding: calc(var(--value)/2);
-}
-@media (max-width: 768px) {
-    :root{
-        --value: calc(3rem + 3*((100vw - 320px) / 1620));
-        --word-padding: calc(var(--value)/2);
-    }
+    --value: calc(2rem + 48*((100vw - 320px) / 1620));
 }
 *{
     margin: 0;
@@ -29,29 +22,29 @@
     width: 100vw;
     height: 100vh;
 }
-#text{
+#text2{ display: none;}
+.text{
     background-color: transparent;
-    max-width: inherit;
+    width: 100vw;
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
     font-size: var(--value);
     font-weight: bold;
     text-align: center;
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
-    line-height: 10rem;
+    flex-direction: column;
+}
+.text-line{
+    display: flex;
+    flex-direction: row;
 }
 .word{
     flex-grow: 1;
     display: block;
     width: max-content;
-    padding: 0 var(--word-padding) 0 var(--word-padding) ;
     background-color: #000;
 }
 .space{ 
-    min-width: 30vw;
     flex-grow: 2;
     display: block;
     background-color: transparent;
@@ -61,7 +54,7 @@
     position: absolute;
     content: '';
     width: 100%;
-    height: 2rem;
+    height: calc(var(--value)/4);
     background-color: #000;
     left: 0;
 }
@@ -75,4 +68,8 @@
 #black-screen{
     background-color: #000;
     flex-grow: 1;
+}
+@media (max-width: 800px) {
+    #text2{ display: block;}
+    #text1{ display: none;}
 }
